@@ -1,0 +1,30 @@
+spring:
+  port: 8082
+
+
+  spring:
+    config:
+      activate:
+        on-profile: local
+
+  messages:
+    basename: i18m/messages
+
+  datasource:
+    username: ${DB_USERNAME}
+    url: jdbc:postgresql://${DB_HOST}/${DB_NAME}
+    password: ${DB_PASSWORD}
+    test-on-borrow: true
+    validation-query: SELECT 1 FROM dual
+    jpa:
+      show-sql: true
+      hibernate:
+        format-sql: true
+
+    ##flyway:
+      ##url: jdbc:postgresql://${DB_HOST}
+      #locations: classpath:db
+      #schemas: public
+      #user: ${DB_USERNAME}
+      #password: ${DB_PASSWORD}
+      #baseline-on-migrate: true
